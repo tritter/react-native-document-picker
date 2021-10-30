@@ -42,7 +42,7 @@ namespace RNDocumentPicker
       bool cache = false;
       if (options.AsObject().ContainsKey(CACHE_TYPE))
       {
-        cache = options.AsObject()[CACHE_TYPE][0].AsBoolean();
+        cache = options.AsObject()[CACHE_TYPE].AsBoolean();
       }
 
       var isMultiple = options.AsObject()[OPTION_MULTIPLE].AsBoolean();
@@ -165,7 +165,7 @@ namespace RNDocumentPicker
         JSValueObject result = new JSValueObject
                 {
                     { FIELD_URI, file.Path },
-                    { FIELD_FILE_COPY_URI, file.Path },
+                    { FIELD_FILE_COPY_URI, fileInCache.Path },
                     { FIELD_TYPE, file.ContentType },
                     { FIELD_NAME, file.Name },
                     { FIELD_SIZE, basicProperties.Size},
